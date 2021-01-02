@@ -30,6 +30,10 @@ import java.util.Date;
 public class OnlineUserDto {
 
     /**
+     * 用户Id
+     * */
+    private Long userId;
+    /**
      * 用户名
      */
     private String userName;
