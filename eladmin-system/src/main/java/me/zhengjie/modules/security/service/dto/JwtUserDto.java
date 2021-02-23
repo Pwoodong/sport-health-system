@@ -41,6 +41,9 @@ public class JwtUserDto implements UserDetails {
     private final List<GrantedAuthority> authorities;
 
     public Set<String> getRoles() {
+        if(authorities == null){
+            return null;
+        }
         return authorities.stream().map(GrantedAuthority::getAuthority).collect(Collectors.toSet());
     }
 

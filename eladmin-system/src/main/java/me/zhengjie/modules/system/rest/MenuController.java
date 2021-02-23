@@ -20,6 +20,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import me.zhengjie.annotation.Log;
+import me.zhengjie.annotation.rest.AnonymousGetMapping;
 import me.zhengjie.modules.system.domain.Menu;
 import me.zhengjie.exception.BadRequestException;
 import me.zhengjie.modules.system.service.MenuService;
@@ -59,7 +60,8 @@ public class MenuController {
         menuService.download(menuService.queryAll(criteria, false), response);
     }
 
-    @GetMapping(value = "/build")
+    //@GetMapping(value = "/build")
+    @AnonymousGetMapping(value = "/build")
     @ApiOperation("获取前端所需菜单")
     public ResponseEntity<Object> buildMenus(){
         List<MenuDto> menuDtoList = menuService.findByUser(SecurityUtils.getCurrentUserId());
